@@ -113,7 +113,7 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
 const AboutPage = () => {
   // State for dynamic numbers
   const [stats, setStats] = useState({
-    totalProjects: 3,
+    totalProjects: 5,
     totalCertificates: 6,
     techStacksCount: 18
   });

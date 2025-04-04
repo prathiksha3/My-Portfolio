@@ -95,20 +95,18 @@ export const PROJECTS = [
     features: [
       "Customer Relationship Management (CRM)",
       "Smart Inventory Control AND",
-      
-      "Automated alert system for critical hive conditions",
       "Role-based access controls (Admin/Staff/Client portals).",
         "Real-time stock level monitoring and Multi-location inventory tracking.",
         "Centralized customer database with interaction history and Reminder system."
     ],
-    github: "https://github.com/yourusername/beehive-monitoring"
+    github: "https://github.com/prathiksha3/Ukshathi.git"
   },
   {
     title: "Flat Rental Management System",
     image: project3,
     description:
       "Application designed to management of flat rental properties. Created a web application to manage the details of flat rental properties.That contain the details of Flats, Tenant, payment. This is mainly helpful to owner of the flats",
-    technologies: ["HTML","CSS","PHP","SQL,XAMPP"],
+    technologies: ["HTML","CSS","PHP","SQL","XAMPP"],
     features: [
       "Tenant and property management dashboard",
       "Automated rent payment tracking system",
@@ -122,15 +120,15 @@ export const PROJECTS = [
     title: "Prathiksha A - Interactive Portfolio",
     image: project4,
     description:
-      "Explore a cosmic-themed portfolio blending 3D elements and fluid animations. Skills and projects unfold through stardust transitions, particle effects, and parallax scrolling, creating an immersive journey. Navigate via celestial mechanics—hover triggers supernova bursts, while a sleek contact form emerges like a wormhole. Dark matter aesthetics meet functional design.",
-    technologies: ["Streamlit", "Raspberry Pi", "OpenCV", "YOLO"],
+      "Designed and developed an immersive space-themed portfolio featuring 3D elements, fluid animations, and interactive transitions. Projects and skills are presented using dynamic particle effects, parallax scrolling, and stardust-inspired animations. Navigation is enhanced with celestial interactions—hover actions trigger supernova-like bursts, and the contact form reveals itself through a smooth, wormhole-style transition. Combines dark, futuristic aesthetics with user-friendly functionality to create a visually engaging and seamless browsing experience.",
+    technologies: ["Next.js","Three.js","React","Tailwind CSS"],
     features: [
       " Home & About Section – Introduction and background details",
       "Projects Showcase – List of projects with animations and details",
       "Animated Contact Form – Cosmic-themed UI with EmailJS integration",
       "Framer Motion Animations – Smooth transitions and effects"
     ],
-    github: "https://github.com/yourusername/beehive-monitoring"
+    github: "https://github.com/prathiksha3/My-Portfolio.git"
   },
 ];
 

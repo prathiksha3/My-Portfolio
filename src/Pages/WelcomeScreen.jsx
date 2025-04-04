@@ -3,31 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Github, Globe, User } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-const TypewriterEffect = ({ text }) => {
-  const [displayText, setDisplayText] = useState('');
-  
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= text.length) {
-        setDisplayText(text.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 260);
-    
-    return () => clearInterval(timer);
-  }, [text]);
-
-  return (
-    <span className="inline-block">
-      {displayText}
-      <span className="animate-pulse">|</span>
-    </span>
-  );
-};
+import styled from 'styled-components';
 
 const BackgroundEffect = () => (
   <div className="absolute inset-0 overflow-hidden">
@@ -42,6 +18,32 @@ const IconButton = ({ Icon }) => (
     <div className="relative p-2 sm:p-3 bg-black/50 backdrop-blur-sm rounded-full border border-white/10">
       <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" />
     </div>
+  </div>
+);
+
+const RingLoader = () => (
+  <div className="flex justify-center items-center relative w-[200px] h-[200px] mx-auto">
+    <div className="absolute w-[190px] h-[190px] border border-transparent rounded-full border-b-8 border-b-[rgb(255,141,249)] animate-[rotate1_2s_linear_infinite]" 
+      style={{
+        transform: 'rotateX(50deg) rotateZ(110deg)',
+        animation: 'rotate1 2s linear infinite'
+      }} />
+    <div className="absolute w-[190px] h-[190px] border border-transparent rounded-full border-b-8 border-b-[rgb(255,65,106)] animate-[rotate2_2s_linear_infinite]"
+      style={{
+        transform: 'rotateX(20deg) rotateY(50deg) rotateZ(20deg)',
+        animation: 'rotate2 2s linear infinite'
+      }} />
+    <div className="absolute w-[190px] h-[190px] border border-transparent rounded-full border-b-8 border-b-[rgb(0,255,255)] animate-[rotate3_2s_linear_infinite]"
+      style={{
+        transform: 'rotateX(40deg) rotateY(130deg) rotateZ(450deg)',
+        animation: 'rotate3 2s linear infinite'
+      }} />
+    <div className="absolute w-[190px] h-[190px] border border-transparent rounded-full border-b-8 border-b-[rgb(252,183,55)] animate-[rotate4_2s_linear_infinite]"
+      style={{
+        transform: 'rotateX(70deg) rotateZ(270deg)',
+        animation: 'rotate4 2s linear infinite'
+      }} />
+    <div className="text-white text-lg font-medium">loading</div>
   </div>
 );
 
@@ -94,7 +96,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 bg-[#030014]"
+          className="fixed inset-0 bg-[#030014] flex flex-col justify-center items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit="exit"
@@ -102,59 +104,64 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
         >
           <BackgroundEffect />
           
-          <div className="relative min-h-screen flex items-center justify-center px-4">
-            <div className="w-full max-w-4xl mx-auto">
-              {/* Icons */}
-              <motion.div 
-                className="flex justify-center gap-3 sm:gap-4 md:gap-8 mb-6 sm:mb-8 md:mb-12"
-                variants={childVariants}
-              >
-                {[Code2, User, Github].map((Icon, index) => (
-                  <div key={index} data-aos="fade-down" data-aos-delay={index * 200}>
-                    <IconButton Icon={Icon} />
-                  </div>
-                ))}
-              </motion.div>
+          <div className="relative w-full flex flex-col items-center justify-center px-4">
+            {/* Icons - Centered above the loader */}
+            <motion.div 
+              className="flex justify-center gap-4 mb-8"
+              variants={childVariants}
+            >
+              {[Code2, User, Github].map((Icon, index) => (
+                <div key={index} data-aos="fade-down" data-aos-delay={index * 200}>
+                  <IconButton Icon={Icon} />
+                </div>
+              ))}
+            </motion.div>
 
-              {/* Welcome Text */}
-              <motion.div 
-                className="text-center mb-6 sm:mb-8 md:mb-12"
-                variants={childVariants}
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold space-y-2 sm:space-y-4">
-                  <div className="mb-2 sm:mb-4">
-                    <span data-aos="fade-right" data-aos-delay="200" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                      Welcome
-                    </span>{' '}
-                    <span data-aos="fade-right" data-aos-delay="400" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                      To
-                    </span>{' '}
-                    <span data-aos="fade-right" data-aos-delay="600" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-                      My
-                    </span>
-                  </div>
-                  <div>
-                    <span data-aos="fade-up" data-aos-delay="800" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      Portfolio
-                    </span>{' '}
-                    <span data-aos="fade-up" data-aos-delay="1000" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                      Website
-                    </span>
-                  </div>
-                </h1>
-              </motion.div>
-
-              {/* Website Link */}
-              <motion.div 
-                className="text-center"
-                variants={childVariants}
-                data-aos="fade-up"
-                data-aos-delay="1200"
-              >
-                
-              </motion.div>
-            </div>
+            {/* Ring Loader - Centered */}
+            <motion.div
+              variants={childVariants}
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <RingLoader />
+            </motion.div>
           </div>
+          
+          {/* CSS Animations */}
+          <style jsx global>{`
+            @keyframes rotate1 {
+              from {
+                transform: rotateX(50deg) rotateZ(110deg);
+              }
+              to {
+                transform: rotateX(50deg) rotateZ(470deg);
+              }
+            }
+            @keyframes rotate2 {
+              from {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+              }
+              to {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+              }
+            }
+            @keyframes rotate3 {
+              from {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+              }
+              to {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+              }
+            }
+            @keyframes rotate4 {
+              from {
+                transform: rotateX(70deg) rotateZ(270deg);
+              }
+              to {
+                transform: rotateX(70deg) rotateZ(630deg);
+              }
+            }
+          `}</style>
         </motion.div>
       )}
     </AnimatePresence>
