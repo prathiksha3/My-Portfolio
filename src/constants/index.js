@@ -5,6 +5,7 @@ import project2 from "../assets/projects/project2.jpg";
 import project3 from "../assets/projects/project3.png";
 import project4 from "../assets/projects/project4.png";
 import project5 from "../assets/projects/project5.png";
+import project6 from "../assets/projects/project6.png";
 import vol1 from "../assets/Volunteering/vol1.png"
 import vol2 from "../assets/Volunteering/vol2.png"
 import vol3 from "../assets/Volunteering/vol3.jpg"
@@ -130,6 +131,22 @@ export const PROJECTS = [
     ],
     github: "https://github.com/prathiksha3/My-Portfolio.git"
   },
+  {
+    title: "Organizational Search Engine ",
+    image: project6,
+    description: "A comprehensive daily report documenting the development of a search engine system for organizational data collection and management. The project involved web scraping, data organization, frontend/backend development, and dashboard creation.",
+    technologies: ["Python", "Web Scraping", "Flask", "Django", "SQL", "HTML/CSS", "JavaScript"],
+    features: [
+        "Automated web scraping for organizational data collection",
+        "Data cleaning and validation processes",
+        "User and admin dashboard interfaces",
+        "Secure login system for admin access",
+        "Data update scheduling system",
+        "Frontend-backend integration",
+        "Search functionality for organizational data"
+    ],
+    github: "https://github.com/prathiksha3/Web-Scrapping-Search-Engine.git"
+  }
 ];
 
 export const CONTACT = {
