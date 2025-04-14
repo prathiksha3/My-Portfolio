@@ -69,7 +69,7 @@ export const PROJECTS = [
       "Automated alert system for critical hive conditions",
       "Data visualization dashboard for hive metrics"
     ],
-    github: "https://github.com/yourusername/beehive-monitoring"
+    github: "https://github.com/prathiksha3/Bee-Classification.git"
   },
 
   {
@@ -134,7 +134,7 @@ export const PROJECTS = [
   {
     title: "Organizational Search Engine ",
     image: project6,
-    description: "A comprehensive daily report documenting the development of a search engine system for organizational data collection and management. The project involved web scraping, data organization, frontend/backend development, and dashboard creation.",
+    description: " Development of a search engine system for organizational data collection and management. The project involved web scraping, data organization, frontend/backend development, and dashboard creation.",
     technologies: ["Python", "Web Scraping", "Flask", "Django", "SQL", "HTML/CSS", "JavaScript"],
     features: [
         "Automated web scraping for organizational data collection",
